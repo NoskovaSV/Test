@@ -1,4 +1,6 @@
 {%extends 'default.html'%}
+{% load custom_filters %}
+
 <head>
     <meta charset="UTF-8">
     <title>Post</title>
@@ -13,9 +15,9 @@
             <td><u>Содержание</u></td>
         </tr>
         <tr>
-            <td>{{ post.header }}</td>
+            <td>{{ post.header|censor }}</td>
             <td>{{ post.creation_date|date:'d M Y' }}</td>
-            <td>{{ post.text}}</td>
+            <td>{{ post.text|censor}}</td>
         </tr>
     </table>
     {% endblock content %}
