@@ -28,7 +28,7 @@ class Post(models.Model):
     N = "news"
     choices = ((A, "Статья")), (N, "Новость")
     choice_field = models.CharField(max_length=7, choices=choices, default="news")
-    creation_date = models.DateField(auto_now_add=True)
+    creation_date = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category, through="PostCategory")
     header = models.CharField(max_length=255, default="Default value")
     text = models.TextField()

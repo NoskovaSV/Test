@@ -11,10 +11,9 @@ class PostFilter(FilterSet):
     )
 
 
-class Meta:
-    model = Post
-    fields = {
+    class Meta:
+        model = Post
+        fields = {
         'header': ['icontains'],
         'user': ['exact'],
-        'creation_date': ['gt']
     }
