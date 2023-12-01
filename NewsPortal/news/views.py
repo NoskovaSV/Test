@@ -11,6 +11,14 @@ class PostList(ListView):
     paginate_by = 10
 
 
+    def get_template_names(self):
+        if self.request.path =='/news/':
+            self.template_name='posts.html'
+        elif self.request.path == '/news/search/':
+            self.template_name = 'search.html'
+        return self.template_name
+
+
     def get_queryset(self):
         queryset = super().get_queryset()
         self.filterset = PostFilter(self.request.GET, queryset)
