@@ -25,7 +25,7 @@ class Category(models.Model):
     category_name = models.CharField(max_length=255, default="Default value", unique=True)
 
     def __str__(self):
-        return self.caregory_name.title()
+        return self.category_name.title()
 
 class Post(models.Model):
     user = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="post")
