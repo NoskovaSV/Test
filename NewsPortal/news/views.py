@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView,  CreateView
 from .models import Post
 from .filters import PostFilter
+from .forms import PostForm
 
 class PostList(ListView):
     model=Post
@@ -34,6 +36,11 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'specific_post.html'
     context_object_name = 'post'
+
+class PostCreate(CreateView):
+    form_class = PostForm
+    model = Post
+    template_name = 'news_create.html'
 
 
 
